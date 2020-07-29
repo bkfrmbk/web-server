@@ -2,13 +2,16 @@ $(document).ready(() => {
   $('form').submit((e) => {
     e.preventDefault()
     const location = $('input').val()
+    const successMessage = $('.successMessage')
+    const errorMessage = $('.errorMessage')
     fetch(`http://localhost:3000/weather/?address=${location}`).then((response) => {
       response.json().then((data) => {
         if (data.error) {
-          console.log(data.error);
+          errorMessage.append(data.error)
         } else {
-          console.log(data.loc);
-          console.log(data.forecast);
+          successMessage.append(data.loc)
+          successMessage.append('<br>')
+          successMessage.append(data.forecast)
         }
       })
     })
