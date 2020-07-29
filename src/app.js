@@ -38,12 +38,21 @@ app.get('/help', (req, res) => {
 })
 
 app.get('/weather', (req, res) => {
-  res.send({
-    lat: 30,
-    lon: 50,
-    temp: 25
-  })
+  if (!req.query.address) {
+    return res.send({
+      error: 'Must provide a query'
+    })
+  } else {
+    res.send({
+      lat: 30,
+      lon: 50,
+      temp: 25,
+      address: req.query.address
+    })
+  }
 })
+
+
 
 app.get('/help/*', (req, res) => {
   res.render('404', {
