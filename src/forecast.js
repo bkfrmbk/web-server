@@ -12,7 +12,7 @@ const forecast = (lat, lon, callback) => {
       callback('Unable to find location', undefined);
     } else {
       const data = body.current;
-      callback(undefined, 'It is currently ' + data.weather_descriptions[0] + '. The temperature is ' + data.temperature + ' and the cloud cover is ' + data.cloudcover + '%');
+      callback(undefined, 'It is currently ' + data.weather_descriptions[0] + '. The temperature is ' + data.temperature + ', the cloud cover is ' + data.cloudcover + '%, and the humidity is ' + data.humidity + '%');
     }
   });
 }
