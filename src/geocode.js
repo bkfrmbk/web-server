@@ -10,6 +10,7 @@ const geoCode = (address, callback) => {
       callback('Unable to connect', undefined)
     } else if (!body.features || body.features.length === 0) {
       callback('Unable to find location', undefined)
+      console.log(body);
     } else {
       callback(undefined, {
          lat: body.features[0].center[1],
