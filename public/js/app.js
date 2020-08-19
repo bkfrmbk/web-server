@@ -6,7 +6,6 @@ $(document).ready(() => {
     const errorMessage = $('.errorMessage')
     fetch(`/weather/?address=${location}`).then((response) => {
       response.json().then((data) => {
-        console.log(data);
         if (data.error) {
           errorMessage.append(data.error)
         } else {
